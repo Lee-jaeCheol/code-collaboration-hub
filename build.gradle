@@ -1,0 +1,30 @@
+plugins {
+    id 'org.springframework.boot' version '3.2.1'  // Spring Boot 플러그인
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'  // JDK 버전 (11 or 17)
+    targetCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'  // 웹 모듈
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // JSP와 JSTL 지원
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'  // JSP 엔진
+    implementation 'javax.servlet:jstl:1.2'  // JSTL 버전 명시
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
